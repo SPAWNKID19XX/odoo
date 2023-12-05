@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mailing_list_form_view" model="ir.ui.view">
+            <field name="name">mailing_list.form.view</field>
+            <field name="model">mailing.mailing</field>
+            <field name="arch" type="xml">
+                <form string="Mailing List">
+                    <header>
+                        <p style="margin:12px;">Create random user(s): </p>
+                        <button name="create_user" class="oe_highlight" string="One" type="object"/>
+                        <button name="create_few_user" class="oe_highlight" string="Few" type="object"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="gender"/>
+                                <field name="name"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="picture"/>
+                            </group>
+                            <group>
+                                <field name="street"/>
+                                <field name="city"/>
+                                <field name="state"/>
+                                <field name="country"/>
+                                <field name="postcode"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mailing_list_tree_view" model="ir.ui.view">
+            <field name="name">mailing_list.tree.view</field>
+            <field name="model">mailing.mailing</field>
+            <field name="arch" type="xml">
+                <tree string="Mailing List">
+                    <!--                    <field name="gender"/>-->
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <!--                    <field name="picture"/>-->
+                    <!--                    <field name="street"/>-->
+                    <field name="city"/>
+                    <field name="state"/>
+                    <field name="country"/>
+                    <!--                    <field name="postcode"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="mailing_list_act_window" model="ir.actions.act_window">
+            <field name="name">Mailing List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mailing.mailing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Mailing List" id="mailing_list_menu" sequence="10" action="mailing_list_act_window"/>
+    </data>
+</odoo>
+
