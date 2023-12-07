@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <form string="Mailing List">
                     <header>
-                        <p style="margin:12px;">Create random user(s): </p>
-                        <button name="create_user" class="oe_highlight" string="One" type="object"/>
+                        <p style="margin:12px;">Create random user(s):</p>
+                        <button name="create_one_user" class="oe_highlight" string="One" type="object"/>
                         <button name="create_few_user" class="oe_highlight" string="Few" type="object"/>
                     </header>
                     <sheet>
@@ -18,14 +18,14 @@
                                 <field name="name"/>
                                 <field name="email"/>
                                 <field name="phone"/>
-                                <field name="picture"/>
-                            </group>
-                            <group>
                                 <field name="street"/>
                                 <field name="city"/>
                                 <field name="state"/>
                                 <field name="country"/>
                                 <field name="postcode"/>
+                            </group>
+                            <group>
+                                <field name="picture" widget="image" class="oe_avatar"/>
                             </group>
                         </group>
                     </sheet>

@@ -1,0 +1,66 @@
+//////////////////////////////////////////////
+//////////////    PORTUGUESE   ///////////////
+//////////////////////////////////////////////
+A aplicação deve cumprir os seguintes pontos:
+
+1.1 Deve criar uma Mailing List própria de nome “NOVOS CONTATOS 2023”
+
+1.2 Devem criar contatos que fiquem associados a esta lista de contatos.
+
+1.3 O form de contatos deve conter os seguintes dados (usar campos existentes e criar os necessários):
+
+    gender,name,street,city,state,country,postcode,email,phone,picture (deve mostrar a imagem)
+
+  1.4 os dados são retirados da seguinte API - https://randomuser.me/api
+
+  1.5 deve existir um botão wizard que define o número de contactos que quero importar (ex. carrego no botão, indico o número de contactos que quero, faço um pedido à API e crio esse número de contatos) (usar multiple request ver docs api)
+
+  1.6 Não pode haver contactos duplicados
+
+  1.7 Criar um botão para eliminar os contactos todos dessa lista
+
+//////////////////////////////////////////////
+//////////////    РУССКИЙ   //////////////////
+//////////////////////////////////////////////
+ПРИЛОЖЕНИЕ ДОЛЖНО ВЫПОЛНЯТЬ СЛЕДУЮЩИЕ ОПЕРАЦИИ
+
+1.1 Необходимо создать собственный список рассылки с названием "НОВЫЕ КОНТАКТЫ 2023".
+
+1.2 Необходимо создать контакты, связанные с этим списком контактов.
+
+1.3 Форма контактов должна содержать следующие данные (используйте существующие поля и создайте необходимые):
+
+пол, имя, улица, город, область/штат, страна, почтовый индекс, электронная почта, телефон, изображение (должно отображать изображение)
+gender,name,street,city,state,country,postcode,email,phone,picture (deve mostrar a imagem)
+
+1.4 Данные берутся из следующего API - https://randomuser.me/api
+
+1.5 Должна быть кнопка мастера, которая задает количество контактов, которое я хочу импортировать (например, я нажимаю на кнопку, указываю количество контактов, которое хочу, делаю запрос к API и создаю это количество контактов) (используйте multiple request, см. документацию API).
+
+1.6 Не должно быть дублирующихся контактов.
+
+1.7 Создать кнопку для удаления всех контактов из этого списка.
+
+
+//////////////////////////////////////////////
+//////////////    INGLISH   //////////////////
+//////////////////////////////////////////////
+THE APP SHOULD EXECUTE NEXT CONDITIONS
+
+1.1 It must create its own Mailing List named "NEW CONTACTS 2023."
+
+1.2 Contacts that are associated with this contact list must be created.
+
+1.3 The contact form must contain the following data (use existing fields and create necessary ones):
+
+arduino
+
+gender, name, street, city, state, country, postcode, email, phone, picture (must display the image)
+
+1.4 Data should be fetched from the following API - https://randomuser.me/api
+
+1.5 There should be a wizard button that sets the number of contacts I want to import (e.g., I press the button, indicate the number of contacts I want, make a request to the API, and create that number of contacts) (use multiple requests, see API docs).
+
+1.6 There cannot be duplicate contacts.
+
+1.7 Create a button to delete all contacts from this list.
