@@ -42,9 +42,11 @@ A aplicação deve cumprir os seguintes pontos:
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'wizard/create_ramdom_users.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/mailing.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

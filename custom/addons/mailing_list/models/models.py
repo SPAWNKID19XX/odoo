@@ -3,7 +3,7 @@ import base64
 import json
 
 import requests
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 
 class MailingList(models.Model):
@@ -21,11 +21,10 @@ class MailingList(models.Model):
     email = fields.Char(string="Email")
     phone = fields.Char(string="Phone")
     picture = fields.Image("Image")
-
-    street = fields.Char(string="Street")
+    country = fields.Many2one(comodel_name='res.country', string='Country')
+    state = fields.Many2one(comodel_name='res.country.state', string='State', domain="[('country_id', '=?', country)]")
     city = fields.Char(string="City")
-    state = fields.Char(string="State")
-    country = fields.Char(string="Country")
+    street = fields.Char(string="Street")
     postcode = fields.Char(string="Postcode")
 
     API_LINK = 'https://randomuser.me/api'
@@ -34,6 +33,9 @@ class MailingList(models.Model):
         json_data = requests.get(self.API_LINK).json()
         picture_url = json_data['results'][0]['picture']['large']
         decoded_img = base64.b64encode(requests.get(picture_url).content)
+        state = self.env['res.country.state'].search([('name', '=', json_data['results'][0]['location']['state'])])
+        country = self.env['res.country'].search([('name', '=', json_data['results'][0]['location']['country'])])
+        print('***---***',country.name, state.name)
         context = {
             'gender': json_data['results'][0]['gender'],
             'name': json_data['results'][0]['name']['first'] + ' ' + json_data['results'][0]['name']['last'],
@@ -43,8 +45,8 @@ class MailingList(models.Model):
             'street': json_data['results'][0]['location']['street']['name'] + ' ' + str(
                 json_data['results'][0]['location']['street']['number']),
             'city': json_data['results'][0]['location']['city'],
-            'state': json_data['results'][0]['location']['state'],
-            'country': json_data['results'][0]['location']['country'],
+            'state': state,
+            'country': country,
             'postcode': json_data['results'][0]['location']['postcode']
         }
 
@@ -58,5 +60,15 @@ class MailingList(models.Model):
         else:
             self.create(user)
 
-    def create_few_user(self):
-        print('---hello world FEW')
+    def call_wizard_quantity(self):
+        print('CALL WIZARD')
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Quantity'),
+            'view_mode': 'form',
+            'res_model': 'create.few.users.wizard',
+            'target': 'new',
+        }
+
+
+

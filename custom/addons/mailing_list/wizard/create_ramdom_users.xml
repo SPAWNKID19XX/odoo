@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="create_users_form_view">
+            <field name="name">create_users_form</field>
+            <field name="model">create.few.users.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Quantity">
+                    <sheel>
+                        <group>
+                            <field name="quantity"/>
+                        </group>
+
+                        <footer>
+                            <button name="confirm_button" string="Confirm" type="object" class="btn-primary"/>
+                            <button string="Close" special="cancel" class="btn-secondary"/>
+                        </footer>
+                    </sheel>
+
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
