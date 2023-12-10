@@ -35,7 +35,6 @@ class MailingList(models.Model):
         decoded_img = base64.b64encode(requests.get(picture_url).content)
         state = self.env['res.country.state'].search([('name', '=', json_data['results'][0]['location']['state'])])
         country = self.env['res.country'].search([('name', '=', json_data['results'][0]['location']['country'])])
-        print('***---***',country.name, state.name)
         context = {
             'gender': json_data['results'][0]['gender'],
             'name': json_data['results'][0]['name']['first'] + ' ' + json_data['results'][0]['name']['last'],
@@ -45,30 +44,35 @@ class MailingList(models.Model):
             'street': json_data['results'][0]['location']['street']['name'] + ' ' + str(
                 json_data['results'][0]['location']['street']['number']),
             'city': json_data['results'][0]['location']['city'],
-            'state': state,
-            'country': country,
+            'state': state.id,
+            'country': country.id,
             'postcode': json_data['results'][0]['location']['postcode']
         }
-
         return context
 
     def create_one_user(self):
-        print('---hello world ONE')
         user = self.create_user()
         if user['name']:
             self.write(user)
         else:
             self.create(user)
+        return user
 
     def call_wizard_quantity(self):
         print('CALL WIZARD')
         return {
             'type': 'ir.actions.act_window',
-            'name': _('Quantity'),
+            'res_model': 'create.users.wizard',
             'view_mode': 'form',
-            'res_model': 'create.few.users.wizard',
+            'views': [(False, 'form')],
             'target': 'new',
+            'context': {'default_mailing_mailing_id': self.id}
         }
 
-
-
+    def open_last_user(self, user):
+        return {
+            'type': 'ir.actions.act_window',
+            'res_id': user.id,
+            'res_model': 'mailing.mailing',
+            "views": [[False, "form"]],
+        }

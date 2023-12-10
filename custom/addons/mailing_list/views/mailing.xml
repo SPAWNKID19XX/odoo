@@ -38,16 +38,11 @@
             <field name="model">mailing.mailing</field>
             <field name="arch" type="xml">
                 <tree string="Mailing List">
-                    <!--                    <field name="gender"/>-->
                     <field name="name"/>
                     <field name="email"/>
                     <field name="phone"/>
-                    <!--                    <field name="picture"/>-->
-                    <!--                    <field name="street"/>-->
                     <field name="city"/>
-                    <field name="state"/>
                     <field name="country"/>
-                    <!--                    <field name="postcode"/>-->
                 </tree>
             </field>
         </record>
