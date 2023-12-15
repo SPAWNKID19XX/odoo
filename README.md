@@ -38,6 +38,8 @@ Nas vendas e faturas o campo só deve poder ser editado se o documento estiver n
 
 Este campo deve também aparecer no print dos orçamentos perto do campo do vendedor
 
+
+
 3- Criar um modulo que todos os dias vá Todos os dias pelas 22h verificar se algum utilizador se esqueceu de dar checkout. Se algum user se tiver esquecido de fazer checkout, e o checkin estiver no período de trabalho, deve ser registado automaticamente checkout para o final do horário de trabalho do funcionário naquele dia. 
 
   Notas: Para conseguir ver os horários de trabalho do funcionário podem ir ao resource.calendar definido no funcionário (calendar_id). devem também analisar com cuidado os métodos existentes no resource.resource para facilitar o desenvolvimento
