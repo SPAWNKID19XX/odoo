@@ -76,3 +76,10 @@ class MailingList(models.Model):
             'res_model': 'mailing.mailing',
             "views": [[False, "form"]],
         }
+
+    def delete_all_users(self):
+        print('DELETE')
+        list_mailing = self.env['mailing.mailing'].search([])
+        print(list_mailing)
+        list_mailing.unlink()
+

@@ -10,6 +10,7 @@
                         <p style="margin:12px;">Create random user(s):</p>
                         <button name="create_one_user" class="oe_highlight" string="One" type="object"/>
                         <button name="call_wizard_quantity" class="oe_highlight" string="Few" type="object"/>
+                        <button name="delete_all_users" class="oe_highlight" string="Delete" type="object"/>
                     </header>
                     <sheet>
                         <group>

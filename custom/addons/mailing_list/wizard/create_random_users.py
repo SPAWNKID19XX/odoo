@@ -27,3 +27,4 @@ class CreateUsersWizard(models.TransientModel):
         for rec in all_recs:
             if not rec.name:
                 rec.unlink()
+
