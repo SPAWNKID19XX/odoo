@@ -31,13 +31,17 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale_management', 'account'],
+    'depends': ['base', 'sale_management', 'account', 'crm'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/inherit_sales.xml',
+        'views/inherit_invoices.xml',
+        'views/inherit_crm.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
