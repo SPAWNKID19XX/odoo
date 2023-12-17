@@ -24,7 +24,7 @@ A aplicação deve cumprir os seguintes pontos:
 
 
 
-2 - Tanto as vendas já têm um campo para o vendedor, no entanto nenhum deles tem um campo para identificar o "angariador" ou seja a pessoa que referenciou a oportunidade.
+2 - Tanto as vendas já têm um campo para o vendedor, no entanto nenhum deles tem um campo para identificar o "angariador"(acquisition agent) ou seja a pessoa que referenciou a oportunidade.
 
 É então pedido que seja criado um campo de contacto nas oportunidades, vendas e faturas.
 
