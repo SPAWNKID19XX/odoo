@@ -11,7 +11,7 @@ A aplicação deve cumprir os seguintes pontos:
 
 1.3 O form de contatos deve conter os seguintes dados (usar campos existentes e criar os necessários):
 
-    gender,name,street,city,state,country,postcode,email,phone,picture (deve mostrar a imagem)
+gender,name,street,city,state,country,postcode,email,phone,picture (deve mostrar a imagem)
 
   OK 1.4 os dados são retirados da seguinte API - https://randomuser.me/api 
 
@@ -24,35 +24,72 @@ A aplicação deve cumprir os seguintes pontos:
 
 
 
-2 - Tanto as vendas já têm um campo para o vendedor, no entanto nenhum deles tem um campo para identificar o "angariador"(acquisition agent) ou seja a pessoa que referenciou a oportunidade.
+2 -------   NOTAS: Devem ativar as variantes de artigo para este exercício nas configurações gerais. (especialmente para o extra, e devem ter atenção que product.template é uma coisa, e product.product é outra)
 
-É então pedido que seja criado um campo de contacto nas oportunidades, vendas e faturas.
+Nos artigos ter uma listagem para os "clientes habituais" onde podemos colocar a referencia e nome que o cliente utiliza para aquele artigo.
 
-O valor deste campo deve ser passado da oportunidade para a venda, e de venda para a fatura
-
-(Ou seja se criar uma venda apartir da oportunidade, a venda deve assumir o mesmo angariador que a lead, e ao criar uma fatura a partir da venda, a fatura deve assumir o mesmo valor que a venda)
-
-Este campo deve aparecer na vista de formulário a baixo do campo do vendedor
-
-Nas vendas e faturas o campo só deve poder ser editado se o documento estiver no estado "draft" (verem exemplos da odoo, quando usam o parâmetro "states" nos campos)
-
-Este campo deve também aparecer no print dos orçamentos perto do campo do vendedor
+1- Cada artigo pode ter Vários "clientes habituais" 
+ok|2- Cada cliente pode estar em vários artigos
+OK|3- Cada cliente pode ter uma referencia e nome diferente por artigo, por exemplo: O artigo [ABC] Artigo, para o cliente Jorge pode ser [001] Produto e para o cliente Armando pode ser [QWERTY] sardinha
+4- Nas vendas e faturas, ao adicionar um novo artigo, caso a venda/fatura seja para um cliente habitual desse artigo, deve usar esses valores, em vez de usar os "normais"
+5- Tanto nas vendas como nas faturas, estes valor deve ser carregado ao editar/adicionar artigos ao documento, ou ao alterar o partner desse documento
 
 
 
-3- Criar um modulo que todos os dias vá Todos os dias pelas 22h verificar se algum utilizador se esqueceu de dar checkout. Se algum user se tiver esquecido de fazer checkout, e o checkin estiver no período de trabalho, deve ser registado automaticamente checkout para o final do horário de trabalho do funcionário naquele dia. 
+EXTRA:
 
-  Notas: Para conseguir ver os horários de trabalho do funcionário podem ir ao resource.calendar definido no funcionário (calendar_id). devem também analisar com cuidado os métodos existentes no resource.resource para facilitar o desenvolvimento
+- Adicionar um novo campo aos artigos para poder colocar os países onde o artigo é vendido. 
+Para já este campo deve ser apenas informativo, nao afetando o funcionamento normal do odoo.
+
+- Este campo deve ser visível tanto nos templates como nas variantes
+
+- Caso um template tenha várias variantes, este deve apresentar todos os países presentes nas suas variantes.
+
+- Ao adicionar um novo país no template, este deve ser adicionado a todas as variantes também, e o mesmo deve acontecer quando se remove.
+
+- Ao adicionar um novo país à variantes este deve ser apenas adicionado à variantes que está a ser editada, e não às restantes
+
+
+Campos computados podem ter o parametro "inverse"
+        
+        
+        
+        
+        
+TIAGO
+Criar nova classe(cliente.product.name.mapping) para fazer ligação entre Artigo <> Cliente,
+deve ter campos para guardar:
+- Artigo (product.product) many2one
+- Cliente (res.partner) many2one
+- Nome do artigo para este cliente
+- Referência do artigo para este cliente
+Campo One2many nos artigos para ter a tabela da classe criada anteriormente
+Campo One2many nos clientes para ver a tabela dos seus artigos com nomes e referências
+Alterar método @api.onchange('product_id') na sale.order.line, para que carrege para o campo descrição a referência e o nome para esse cliente.
+PS: Só vai alterar a descrição se existir na tabela referência a esse artigo <> cliente
+
+        
+
+
+
+
+
+
+
+3- Criar um modulo que todos os dias vá Todos os dias pelas 22h verificar se algum utilizador se esqueceu de dar registo de saída. Se algum ‘user’ se tiver esquecido de fazer registo de saída, e o checkin estiver no período de trabalho, 
+deve ser registado automaticamente registo de saída 
+para o final do horário de trabalho do funcionário naquele dia. 
+
+  Notas: Para conseguir ver os horários de trabalho do funcionário podem ir ao resource.calendar definido no funcionário (calendar_id). Devem também analisar com cuidado os métodos existentes no resource.resource para facilitar o desenvolvimento
 
 NOTAS: Devem ativar as variantes de artigo para este exercício nas configurações gerais. (especialmente para o extra, e devem ter atenção que product.template é uma coisa, e product.product é outra)
 
-Nos artigos ter uma listagem para os "clientes habituais" onde podemos colocar a referencia e nome que o cliente utiliza para aquele artigo.
+Nos artigos ter uma listagem para os "clientes habituais" onde podemos colocar a referência e nome que o cliente utiliza para aquele artigo.
 
 1- Cada artigo pode ter Vários "clientes habituais" 
 2- Cada cliente pode estar em vários artigos
 3- Cada cliente pode ter uma referencia e nome diferente por artigo, por exemplo: O artigo [ABC] Artigo, para o cliente Jorge pode ser [001] Produto e para o cliente Armando pode ser [QWERTY] sardinha
 4- Nas vendas e faturas, ao adicionar um novo artigo, caso a venda/fatura seja para um cliente habitual desse artigo, deve usar esses valores, em vez de usar os "normais"
-
 5- Tanto nas vendas como nas faturas, estes valor deve ser carregado ao editar/adicionar artigos ao documento, ou ao alterar o partner desse documento
 
 
@@ -76,7 +113,7 @@ https://www.youtube.com/watch?v=5x2v48yjY3Y
 
 
 
-Enquadramento: 
+4 Enquadramento: 
 
 Cliente na área alimentar, com vários equipamentos que necessitam de manutenção preventiva, higienização e aprovisionamento  de uma forma recorrente ou por pedido.
 
