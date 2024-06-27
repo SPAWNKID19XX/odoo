@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define the form view for mailing_list -->
+    <record id="mailing_list_form_view" model="ir.ui.view">
+        <field name="name">mailing.list.form.view</field>
+        <field name="model">mailing_list.mailing_list</field>
+        <field name="arch" type="xml">
+            <form string="Mailing List">
+                <header>
+                    <button id="button_create_user" name="create_a_user" type="object" string="Create a User" class="oe_highlight"/>
+                    <button id="button_create_a_multiple_users" name="create_a_multiple_users" type="object" string="Create a Users" class="oe_highlight"/>
+                    <button id="clear_all_recs" name="clean_all_recs" type="object" string="Clean DB" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <field name="image_1920" widget='image' class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="country"/>
+                            <field name="state"/>
+                            <field name="city"/>
+                            <field name="street"/>
+                        </group>
+                        <group>
+                            <field name="zip"/>
+                            <field name="gender"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the tree view for mailing_list -->
+    <record id="mailing_list_tree_view" model="ir.ui.view">
+        <field name="name">mailing.list.tree.view</field>
+        <field name="model">mailing_list.mailing_list</field>
+        <field name="arch" type="xml">
+            <tree string="Mailing List">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="country"/>
+                <field name="email"/>
+                <field name="zip"/>
+                <field name="phone"/>
+                <field name="image_1920"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the action for mailing_list -->
+    <record model="ir.actions.act_window" id="mailing_list_action">
+        <field name="name">Mailing list</field>
+        <field name="res_model">mailing_list.mailing_list</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="mailing_list_tree_view"/>
+    </record>
+
+    <!-- Define the menu item for mailing_list -->
+    <menuitem id="mailing_list_menu" action="mailing_list_action" name="Mailing List" sequence="10"/>
+</odoo>

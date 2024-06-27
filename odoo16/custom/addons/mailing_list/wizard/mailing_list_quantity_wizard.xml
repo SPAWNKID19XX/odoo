@@ -1,0 +1,23 @@
+<odoo>
+    <record id="mailing_quantety_wizard_action" model="ir.actions.act_window">
+        <field name="name">Haw Many Users I will generate?</field>
+        <field name="res_model">mailing_list.model_create.multiple.users.wizard</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="mailing_quantety_wizard_form_view" model="ir.ui.view">
+        <field name="name">Haw Many Users I will generate?</field>
+        <field name="model">mailing_list.model_create.multiple.users.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="quantety"/>
+                    <footer>
+                        <button name="btn_confirm_wizard" type="object" string="Confirm" class="btn btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

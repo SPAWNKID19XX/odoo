@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sale_order_acquisition_agent_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.acquisition.agent.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="acquisition_agent"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

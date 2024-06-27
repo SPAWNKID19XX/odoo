@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mailing_list.access_mailing_list_mailing_list,access_mailing_list_mailing_list,mailing_list.model_mailing_list_mailing_list,base.group_user,1,1,1,1
+access_create_multiple_users_wizard,access.create.multiple.users.wizard,model_mailing_list_model_create_multiple_users_wizard,,1,1,1,1
