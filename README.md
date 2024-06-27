@@ -108,3 +108,4 @@ Vão ter que criar um modelo novo para os templates de checklists que devem depo
 Ao criar a manutenção, devemos criar depois as respectivas checklists e associar à manutenção, as checklists que criamos dependem do que está configurado ao nivel dos templates de checklists na categoria do equipamento ou no equipamento em si.
 
 Bonus points: A checklist de higienização só deve ser editavel no estado "In Progress" Criar um fluxo identico para uma checklist diferente que terá que ser preenchida no estado "Repaired"(Esta checklist é para ser preenchida depois da reparação, será preenchida por outro operador que irá validar se a máquina está OK) Adicionar novo estado nas manutenções "Done", se as reparações não tiverem uma checklist para ser preenchida no estado "Repaired" então devem passar automaticamente para o estado "Done"
+# odoo
