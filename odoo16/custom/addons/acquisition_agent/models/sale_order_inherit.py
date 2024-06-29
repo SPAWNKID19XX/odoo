@@ -11,5 +11,15 @@ class Sales(models.Model):
         res = super(Sales, self).default_get(fields_list)
         if self.env.context.get('default_acquisition_agent'):
             res['acquisition_agent'] = self.env.context['default_acquisition_agent']
-            self.acquisition_agent = res['acquisition_agent']
         return res
+
+    def create_invoices(self, grouped=False, final=False, date=None):
+        res = super(Sales, self)._create_invoices(grouped=grouped, final=final, date=date)
+        for invoice in res:
+            invoice.acquisition_agent = self.acquisition_agent
+        return invoice
+
+    def _prepare_invoice(self):
+        invoice_vals = super(Sales, self)._prepare_invoice()
+        invoice_vals['acquisition_agent'] = self.acquisition_agent.id
+        return invoice_vals

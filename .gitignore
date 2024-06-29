@@ -1,4 +1,4 @@
 /odoo16/venv/
 .idea/
 __pycache__/
-
+/odoo16/enterprise/addons/
