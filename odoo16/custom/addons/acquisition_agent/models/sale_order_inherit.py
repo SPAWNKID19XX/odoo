@@ -4,7 +4,17 @@ class Sales(models.Model):
     _inherit = 'sale.order'
     _description = 'sale order inherit add acquisition_agent field'
 
-    acquisition_agent = fields.Many2one('res.partner',  string="Acquisition agent")
+    acquisition_agent = fields.Many2one(
+        'res.users',
+        string="Acquisition Agent",
+        states={
+            'draft': [('readonly', False)],
+            'sent': [('readonly', False)],
+            'sale': [('readonly', True)],
+            'done': [('readonly', True)],
+            'cancel': [('readonly', True)]
+        }
+    )
 
     @api.model
     def default_get(self, fields_list):
