@@ -4,7 +4,10 @@ class CrmLead(models.Model):
     _inherit = 'crm.lead'
     _description = 'crm inherit add acquisition_agent field'
 
-    acquisition_agent = fields.Many2one('res.partner',  string="Acquisition agent")
+    acquisition_agent = fields.Many2one(
+        'res.partner',
+        string="Acquisition agent"
+    )
 
     def action_new_quotation(self):
         res = super(CrmLead, self).action_new_quotation()
