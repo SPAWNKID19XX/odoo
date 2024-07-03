@@ -5,7 +5,7 @@ class Sales(models.Model):
     _description = 'sale order inherit add acquisition_agent field'
 
     acquisition_agent = fields.Many2one(
-        'res.users',
+        'res.partner',
         string="Acquisition Agent",
         states={
             'draft': [('readonly', False)],

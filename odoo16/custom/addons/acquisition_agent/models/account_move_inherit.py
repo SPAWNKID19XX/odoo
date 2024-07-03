@@ -6,7 +6,7 @@ class AccountMove(models.Model):
     _description = 'account.move.inherit'
 
     acquisition_agent = fields.Many2one(
-        'res.users',
+        'res.partner',
         string="Acquisition Agent",
         states={
             'draft': [('readonly', False)],
